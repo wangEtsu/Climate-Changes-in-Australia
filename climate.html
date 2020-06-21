@@ -10,170 +10,624 @@
 
     <body>
 
-        <!-- Load d3.js -->
-        <script src="https://d3js.org/d3.v4.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+
+
+
+        <script src="d3v4.js"></script>
 
         <div class="sidenav">
-            <a class="js-scroll-trigger" href="#introduction">Didyou know?</a>
-            <a class="js-scroll-trigger" href="#services">Services</a>
-            <a class="js-scroll-trigger" href="#test">Clients</a>
-            <a class="js-scroll-trigger" href="#contact">Contact</a>
-
-
-            <a href="#contact">Search</a>
+            <a class="js-scroll-trigger" href="#first">Introduction</a>
+            <a class="js-scroll-trigger" href="#second">Water Storage Level</a>
+            <a class="js-scroll-trigger" href="#third">Inland VS Coastal</a>
+            <a class="js-scroll-trigger" href="#fourth">Droughts</a>
         </div>
 
-        <div class="main" id="introduction">
-            <h2>Australia is facing a huge</h2>
-            <p>Click on the dropdown button to open the dropdown menu inside the side navigation.</p>
-            <p>This sidebar is of full height (100%) and always shown.</p>
-            <p>Some random text..</p>
-            <div id="my_dataviz"></div>
+        <div class="main" id="first">
+            <h1 style="font-size: 3.5rem;font-weight: bolder; color: cadetblue">Climate Change: Is It an Out-Dated Topic?</h1>
+            <p>Climate change is a word that everyone should be familiar with, <br>but how much do people really know about climate change, and how close is it from our daily life?</p>
+
+            <p>Following is a Word Cloud generated from <a href="https://blog.gdeltproject.org/a-new-part-of-speech-dataset-to-explore-climate-change-narratives-in-english-online-news-2016-2020/">a speech dataset</a> that contains recent English news that talked about climate change.</p>
+
+            <div class="cloud"></div>
+
+            <p>Greenhouse, Emissions, Carbon... Seems pretty formal isn't it?</p>
+
         </div>
 
-        <div class="main" id="services">
+        <div class="main" id="second">
+            <h1 style="font-size: 3.5rem;font-weight: bolder; color: cadetblue">Climate changes is getting closer to Melbourne</h1>
+            <p>What you might not know is, abnormal weather such as droughts are having serious affect on the <a href="https://www.melbournewater.com.au/water/water-storage-and-use#/ws/freq/daily/type/storage%E3%80%81">water storage level</a> of Melbourne</p>
+
+            <div class="row">
+
+                <div id="chart" class="col-lg-6 col-md-6"></div>
+                <div class="col-lg-6 col-md-6">
+                    <p style="padding-top: 2rem">Over 80% of Melbourne's water supply comes from water catchment: creeks, rivers, lakes, which is extremely vulnerable to droughts.
+                        In 2000s, Australia has experienced the worst drought in history, also know as <a href="https://en.wikipedia.org/wiki/2000s_Australian_drought">The Millennium Drought</a>.
+                        With history data, we can easily identify the unusual drop of water storage in Melbourne in 2000s.<span style="font-style: italic; color: brown">
+                        Even though the storage level reach its peak at 2014, it has been dropping ever since.</span></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="main" id="third">
+            <h1 style="font-size: 3.5rem;font-weight: bolder; color: cadetblue">Climate changes is getting closer to Melbourne</h1>
+            <p>What you might not know is, abnormal weather such as droughts are having serious affect on the <a href="https://www.melbournewater.com.au/water/water-storage-and-use#/ws/freq/daily/type/storage%E3%80%81">water storage level</a> of Melbourne</p>
+
+            <div class="row">
+
+                <div id="city-chart" class="col-lg-6 col-md-6"></div>
+                <div class="col-lg-6 col-md-6">
+                    <p style="padding-top: 2rem">Over 80% of Melbourne's water supply comes from water catchment: creeks, rivers, lakes, which is extremely vulnerable to droughts.
+                        In 2000s, Australia has experienced the worst drought in history, also know as <a href="https://en.wikipedia.org/wiki/2000s_Australian_drought">The Millennium Drought</a>.
+                        With history data, we can easily identify the unusual drop of water storage in Melbourne in 2000s.<span style="font-style: italic; color: brown">
+                        Even though the storage level reach its peak at 2014, it has been dropping ever since.</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main" id="fourth">
             <h2 id="test">Sidebar Dropdown</h2>
             <p>Click on the dropdown button to open the dropdown menu inside the side navigation.</p>
             <p>This sidebar is of full height (100%) and always shown.</p>
             <p>Some random text..</p>
+            <div id="drought-chart"></div>
+
         </div>
 
-        <div class="main" id="test">
-            <h2 id="test">Sidebar Dropdown</h2>
-            <p>Click on the dropdown button to open the dropdown menu inside the side navigation.</p>
-            <p>This sidebar is of full height (100%) and always shown.</p>
-            <p>Some random text..</p>
-        </div>
-
-        <div class="main" id="contact">
-            <h2 id="test">Sidebar Dropdown</h2>
-            <p>Click on the dropdown button to open the dropdown menu inside the side navigation.</p>
-            <p>This sidebar is of full height (100%) and always shown.</p>
-            <p>Some random text..</p>
-        </div>
-
-        <div class="main">
-            <h2 id="test">Sidebar Dropdown</h2>
-            <p>Click on the dropdown button to open the dropdown menu inside the side navigation.</p>
-            <p>This sidebar is of full height (100%) and always shown.</p>
-            <p>Some random text..</p>
-        </div>
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 
-        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 
 
+
+
+        <!--Word Cloud-->
+        <script>
+            var climateText = "";
+
+            d3.csv("WebPos.csv", function(data) {
+                for (var i = 0; i < data.length; i++) {
+                    climateText = climateText + " " + data[i].token;
+                }
+
+                console.log("What?")
+                //                console.log(climateText);
+
+                text2 = climateText,
+
+                    words = sortByFrequency( text2.split(/[ ,.]+/) )
+                    .map(function(d,i) {
+                    //console.log(d);
+                    return {text: d, size: -i};
+                });
+
+                var fontName = "Impact",
+                    cWidth = 720,
+                    cHeight = 400,
+                    svg,
+                    wCloud,
+                    bbox,
+                    ctm,
+                    bScale,
+                    bWidth,
+                    bHeight,
+                    bMidX,
+                    bMidY,
+                    bDeltaX,
+                    bDeltaY;
+
+                var cTemp = document.createElement('canvas'),
+                    ctx = cTemp.getContext('2d');
+                ctx.font = "100px " + fontName;
+
+                var fRatio = Math.min(cWidth, cHeight) / ctx.measureText(words[0].text).width,
+                    fontScale = d3.scale.linear()
+                .domain([
+                    d3.min(words, function(d) { return d.size; }), 
+                    d3.max(words, function(d) { return d.size; })
+                ])
+                //.range([20,120]),
+                .range([20,100*fRatio/2]), // tbc
+                    fill = d3.scale.category20();
+
+                d3.layout.cloud()
+                    .size([cWidth, cHeight])
+                    .words(words)
+                //.padding(2) // controls
+                    .rotate(function() { return ~~(Math.random() * 2) * 90; })
+                    .font(fontName)
+                    .fontSize(function(d) { return fontScale(d.size) })
+                    .on("end", draw)
+                    .start();
+
+                function draw(words, bounds) {
+                    // move and scale cloud bounds to canvas
+                    // bounds = [{x0, y0}, {x1, y1}]
+                    bWidth = bounds[1].x - bounds[0].x;
+                    bHeight = bounds[1].y - bounds[0].y;
+                    bMidX = bounds[0].x + bWidth/2;
+                    bMidY = bounds[0].y + bHeight/2;
+                    bDeltaX = cWidth/2 - bounds[0].x + bWidth/2;
+                    bDeltaY = cHeight/2 - bounds[0].y + bHeight/2;
+                    bScale = bounds ? Math.min( cWidth / bWidth, cHeight / bHeight) : 1;
+
+                    console.log(
+                        "bounds (" + bounds[0].x + 
+                        ", " + bounds[0].y + 
+                        ", " + bounds[1].x + 
+                        ", " + bounds[1].y + 
+                        "), width " + bWidth +
+                        ", height " + bHeight +
+                        ", mid (" + bMidX +
+                        ", " + bMidY +
+                        "), delta (" + bDeltaX +
+                        ", " + bDeltaY +
+                        "), scale " + bScale
+                    );
+
+                    // the library's bounds seem not to correspond to reality?
+                    // try using .getBBox() instead?
+
+                    svg = d3.select(".cloud").append("svg")
+                        .attr("width", cWidth)
+                        .attr("height", cHeight);
+
+                    wCloud = svg.append("g")
+                    //.attr("transform", "translate(" + [bDeltaX, bDeltaY] + ") scale(" + 1 + ")") // nah!
+                        .attr("transform", "translate(" + [bWidth>>1, bHeight>>1] + ") scale(" + bScale + ")") // nah!
+                        .selectAll("text")
+                        .data(words)
+                        .enter().append("text")
+                        .style("font-size", function(d) { return d.size + "px"; })
+                        .style("font-family", fontName)
+                        .style("fill", function(d, i) { return fill(i); })
+                        .attr("text-anchor", "middle")
+                        .transition()
+                        .duration(500)
+                        .attr("transform", function(d) {
+                        return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                    })
+                        .text(function(d) { return d.text; });
+
+                    // TO DO: function to find min and max x,y of all words
+                    // and use it as the group's bbox
+                    // then do the transformation
+                    bbox = wCloud.node(0).getBBox();
+                    //ctm = wCloud.node().getCTM();
+                    console.log(
+                        "bbox (x: " + bbox.x + 
+                        ", y: " + bbox.y + 
+                        ", w: " + bbox.width + 
+                        ", h: " + bbox.height + 
+                        ")"
+                    );
+
+                };
+
+                function sortByFrequency(arr) {
+                    var f = {};
+                    arr.forEach(function(i) { f[i] = 0; });
+                    var u = arr.filter(function(i) { return ++f[i] == 1; });
+                    return u.sort(function(a, b) { return f[b] - f[a]; });
+                }
+            });
+        </script>
+
+        <!--Water Storage Level Chart-->
         <script>
 
-            // set the dimensions and margins of the graph
-            var margin = {top: 10, right: 30, bottom: 30, left: 60},
-                width = 460 - margin.left - margin.right,
-                height = 400 - margin.top - margin.bottom;
 
-            // append the svg object to the body of the page
-            var svg = d3.select("#my_dataviz")
-            .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform",
-                  "translate(" + margin.left + "," + margin.top + ")");
-
-            //Read the data
-            d3.csv("history_water_storage_level.csv",function(data) {
+            d3.csv("history_water_storage_level.csv", function(data) {
 
                 console.log(data);
 
-                // Add X axis --> it is a date format
-                var x = d3.scaleLinear()
-                .domain([2010,2020])
-                .range([ 0, width ]);
-                svg.append("g")
-                    .attr("transform", "translate(0," + height + ")")
-                    .call(d3.axisBottom(x));
+                var years = [];
+                var levels = [];
 
-                // Add Y axis
-                var y = d3.scaleLinear()
-                .domain([0, 13])
-                .range([ height, 0 ]);
-                svg.append("g")
-                    .call(d3.axisLeft(y));
+                for(var i = 0; i < data.length; i++) {
 
-                // This allows to find the closest X index of the mouse:
-                var bisect = d3.bisector(function(d) { return d.x; }).left;
-
-                // Create the circle that travels along the curve of chart
-                var focus = svg
-                .append('g')
-                .append('circle')
-                .style("fill", "none")
-                .attr("stroke", "black")
-                .attr('r', 8.5)
-                .style("opacity", 0)
-
-                // Create the text that travels along the curve of chart
-                var focusText = svg
-                .append('g')
-                .append('text')
-                .style("opacity", 0)
-                .attr("text-anchor", "left")
-                .attr("alignment-baseline", "middle")
-
-                // Add the line
-                svg
-                    .append("path")
-                    .datum(data)
-                    .attr("fill", "none")
-                    .attr("stroke", "steelblue")
-                    .attr("stroke-width", 1.5)
-                    .attr("d", d3.line()
-                          .x(function(d) { return x(d.x) })
-                          .y(function(d) { return y(d.y) })
-                         )
-
-                // Create a rect on top of the svg area: this rectangle recovers mouse position
-                svg
-                    .append('rect')
-                    .style("fill", "none")
-                    .style("pointer-events", "all")
-                    .attr('width', width)
-                    .attr('height', height)
-                    .on('mouseover', mouseover)
-                    .on('mousemove', mousemove)
-                    .on('mouseout', mouseout);
-
-
-                // What happens when the mouse move -> show the annotations at the right positions.
-                function mouseover() {
-                    focus.style("opacity", 1)
-                    focusText.style("opacity",1)
+                    years.push(data[i].Year)
+                    levels.push(data[i].Value)
                 }
 
-                function mousemove() {
-                    // recover coordinate we need
-                    var x0 = x.invert(d3.mouse(this)[0]);
-                    var i = bisect(data, x0, 1);
-                    selectedData = data[i]
-                    focus
-                        .attr("cx", x(selectedData.x))
-                        .attr("cy", y(selectedData.y))
-                    focusText
-                        .html("x:" + selectedData.x + "  -  " + "y:" + selectedData.y)
-                        .attr("x", x(selectedData.x)+15)
-                        .attr("y", y(selectedData.y))
-                }
-                function mouseout() {
-                    focus.style("opacity", 0)
-                    focusText.style("opacity", 0)
-                }
+                console.log(years);
+                console.log(levels);
 
+
+
+                var myData = levels,
+                    colors = ['#ACF0F2', '#1b6ca8' ],
+                    width = 800,
+                    height = 500,
+                    padding = 60,
+                    barWidth = 50,
+                    outerPadding = .2,
+                    barPadding = .1;
+
+
+                console.log(myData);
+
+                var scales = [73.2, 139.22, 205.24, 271.26, 337.28, 403.30, 469.32, 535.3, 601.3, 667.4];
+
+                var colorScale = d3.scale.linear()
+                .domain( [ 50, d3.max( myData ) ] )
+                .range( colors );
+
+                var xScale = d3.scale.ordinal()
+                .domain( d3.range( 2010, 2020 ) )
+                .rangeBands( [ padding, width - padding ], barPadding, outerPadding );
+
+                var yScale = d3.scale.linear()
+                .domain( [ d3.max( myData ), 0  ]  )
+                .range( [ height - (padding * 2), 0 ] );
+
+                var yAxisScale = d3.scale.linear()
+                .domain( [ Math.round( d3.max( myData ) ), 0 ]  )
+                .range( [ 0, height - ( padding * 2 ) ] );
+
+                var xAxis = d3.svg.axis()
+                .scale( xScale )
+                .orient( 'bottom' );
+
+                var yAxis = d3.svg.axis()
+                .scale( yAxisScale )
+                .orient( 'left' )
+                .ticks( 7 );
+
+                var chart = d3.select( '#chart' )
+                .append( 'svg' )
+                .attr( 'width', width )
+                .attr( 'height', height );
+
+
+
+                var chartBars = chart.selectAll( 'rect' ).data( myData )
+                .enter().append( 'rect' )
+                .attr( 'class', 'chart-bar' )
+                .attr( 'width', function( d ) { return xScale.rangeBand(); })
+                .attr( 'height', 0 )
+                .attr( 'fill', colorScale )
+                .attr( 'x', function( d, i ) { 
+                    return scales[i]; })
+                .attr( 'y', height  - padding );
+
+                var labelSVG = chart.selectAll( 'svg' ).data( myData )
+                .enter().append( 'svg' )
+                .attr( 'class', 'chart-label-svg' )
+                .attr( 'width', 80 )
+                .attr( 'height', 30 )
+                .attr( 'x', function( d, i ) { return scales[i] + xScale.rangeBand(); })
+                .attr( 'y', function( d ){ return height - yScale( d ) - padding - 30;})
+                .style( 'opacity', '0' )
+                .append( 'g' );
+
+                labelSVG.append( 'rect' )
+                    .attr( 'class', 'chart-label-rect' )
+                    .attr( 'width', 120 )
+                    .attr( 'height', 30 )
+                    .attr( 'x', 0 )
+                    .attr( 'y', 0 )
+                    .attr( 'fill', 'grey' );
+
+                labelSVG.append( 'text' )
+                    .attr( 'x', '50%' )
+                    .attr( 'y', '50%' )
+                    .attr( 'text-anchor', 'middle' )
+                    .attr( 'alignment-baseline', 'middle' )
+                    .attr( 'fill', 'white' )
+                    .text( function( d ) { return d + "%"; });
+
+                var xAxisG = chart.append( 'g' )
+                .attr( 'class', 'axis' )
+                .attr( 'transform', 'translate(0,' + (height - padding) + ')' )
+                .call( xAxis );
+
+                var yAxisG = chart.append( 'g' )
+                .attr( 'class', 'axis' )
+                .attr( 'transform', 'translate(' + padding + ', '+ padding +')' )
+                .call( yAxis );
+
+                var rectTransitions = chartBars
+                .on('mouseenter', function( d, i ){
+                    d3.select( this )
+                        .style( 'fill', d3.rgb( colorScale( d ) ).brighter( .3 ) );
+                    d3.selectAll( '.chart-label-svg' )
+                        .filter(function( e, j ){
+                        if  (i === j ) {
+                            return this;
+                        }
+                    })
+                        .style( 'opacity', '1.0' );
+                })
+                .on('mouseleave', function( d, i ){
+                    d3.select( this )
+                        .style( 'fill', d3.rgb( colorScale( d ) ) );
+                    d3.selectAll( '.chart-label-svg' )
+                        .filter(function( e, j ){
+                        if ( i === j ) {
+                            return this;
+                        }
+                    })
+                        .style( 'opacity', '0' );
+                })
+                .transition()
+                .duration( 1000 )
+                .delay( function( d, i ) {return i * 15; })
+                .ease( 'elastic' )
+                .attr( 'height', function( d ) { return yScale( d ); })
+                .attr( 'y', function(d) { return height - yScale(d) - padding; } );
+
+
+
+
+            });
+        </script>
+
+
+        <!--Inland City VS Coastal City-->
+        <script>
+            
+            d3.csv("climate.csv", function(data) {
+            console.log(data);
+
+
+            var marginCity = {
+                top: 20,
+                right: 80,
+                bottom: 30,
+                left: 50
+            },
+                widthCity = 900 - marginCity.left - marginCity.right,
+                heightCity = 500 - marginCity.top - marginCity.bottom;
+
+            var parseDate = d3.time.format("%Y").parse;
+
+            var x = d3.time.scale()
+            .range([0, widthCity]);
+
+            var y = d3.scale.linear()
+            .range([heightCity, 0]);
+
+            var color = d3.scale.category10();
+
+            var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom");
+
+            var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left");
+
+            var line = d3.svg.line()
+            .interpolate("basis")
+            .x(function(d) {
+                return x(d.date);
             })
+            .y(function(d) {
+                return y(d.temperature);
+            });
+
+            var svg = d3.select("#city-chart").append("svg")
+            .attr("width", widthCity + marginCity.left + marginCity.right)
+            .attr("height", heightCity + marginCity.top + marginCity.bottom)
+            .append("g")
+            .attr("transform", "translate(" + marginCity.left + "," + marginCity.top + ")");
+
+//            var data = d3.tsv.parse(myData);
+
+            console.log(data);
+                
+            color.domain(d3.keys(data[0]).filter(function(key) {
+                return key !== "date";
+            }));
+
+            data.forEach(function(d) {
+                d.date = parseDate(d.date);
+            });
+
+            var cities = color.domain().map(function(name) {
+                return {
+                    name: name,
+                    values: data.map(function(d) {
+                        return {
+                            date: d.date,
+                            temperature: +d[name]
+                        };
+                    })
+                };
+            });
+
+            x.domain(d3.extent(data, function(d) {
+                return d.date;
+            }));
+
+            y.domain([
+                d3.min(cities, function(c) {
+                    return d3.min(c.values, function(v) {
+                        return v.temperature;
+                    });
+                }),
+                d3.max(cities, function(c) {
+                    return d3.max(c.values, function(v) {
+                        return v.temperature;
+                    });
+                })
+            ]);
+
+            var legend = svg.selectAll('g')
+            .data(cities)
+            .enter()
+            .append('g')
+            .attr('class', 'legend');
+
+            legend.append('rect')
+                .attr('x', widthCity - 20)
+                .attr('y', function(d, i) {
+                return i * 20;
+            })
+                .attr('width', 10)
+                .attr('height', 10)
+                .style('fill', function(d) {
+                return color(d.name);
+            });
+
+            legend.append('text')
+                .attr('x', widthCity - 8)
+                .attr('y', function(d, i) {
+                return (i * 20) + 9;
+            })
+                .text(function(d) {
+                return d.name;
+            });
+
+            svg.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + heightCity + ")")
+                .call(xAxis);
+
+            svg.append("g")
+                .attr("class", "y axis")
+                .call(yAxis)
+                .append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 6)
+                .attr("dy", ".71em")
+                .style("text-anchor", "end")
+                .text("Temperature (ºF)");
+
+            var city = svg.selectAll(".city")
+            .data(cities)
+            .enter().append("g")
+            .attr("class", "city");
+
+            city.append("path")
+                .attr("class", "line")
+                .attr("d", function(d) {
+                return line(d.values);
+            })
+                .style("stroke", function(d) {
+                return color(d.name);
+            });
+
+            city.append("text")
+                .datum(function(d) {
+                return {
+                    name: d.name,
+                    value: d.values[d.values.length - 1]
+                };
+            })
+                .attr("transform", function(d) {
+                return "translate(" + x(d.value.date) + "," + y(d.value.temperature) + ")";
+            })
+                .attr("x", 3)
+                .attr("dy", ".35em")
+                .text(function(d) {
+                return d.name;
+            });
+
+            var mouseG = svg.append("g")
+            .attr("class", "mouse-over-effects");
+
+            mouseG.append("path") // this is the black vertical line to follow mouse
+                .attr("class", "mouse-line")
+                .style("stroke", "black")
+                .style("stroke-width", "1px")
+                .style("opacity", "0");
+
+            var lines = document.getElementsByClassName('line');
+
+            var mousePerLine = mouseG.selectAll('.mouse-per-line')
+            .data(cities)
+            .enter()
+            .append("g")
+            .attr("class", "mouse-per-line");
+
+            mousePerLine.append("circle")
+                .attr("r", 7)
+                .style("stroke", function(d) {
+                return color(d.name);
+            })
+                .style("fill", "none")
+                .style("stroke-width", "1px")
+                .style("opacity", "0");
+
+            mousePerLine.append("text")
+                .attr("transform", "translate(10,3)");
+
+            mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
+                .attr('width', widthCity) // can't catch mouse events on a g element
+                .attr('height', heightCity)
+                .attr('fill', 'none')
+                .attr('pointer-events', 'all')
+                .on('mouseout', function() { // on mouse out hide line, circles and text
+                d3.select(".mouse-line")
+                    .style("opacity", "0");
+                d3.selectAll(".mouse-per-line circle")
+                    .style("opacity", "0");
+                d3.selectAll(".mouse-per-line text")
+                    .style("opacity", "0");
+            })
+                .on('mouseover', function() { // on mouse in show line, circles and text
+                d3.select(".mouse-line")
+                    .style("opacity", "1");
+                d3.selectAll(".mouse-per-line circle")
+                    .style("opacity", "1");
+                d3.selectAll(".mouse-per-line text")
+                    .style("opacity", "1");
+            })
+                .on('mousemove', function() { // mouse moving over canvas
+                var mouse = d3.mouse(this);
+                d3.select(".mouse-line")
+                    .attr("d", function() {
+                    var d = "M" + mouse[0] + "," + heightCity;
+                    d += " " + mouse[0] + "," + 0;
+                    return d;
+                });
+
+                d3.selectAll(".mouse-per-line")
+                    .attr("transform", function(d, i) {
+                    console.log(widthCity/mouse[0])
+                    var xDate = x.invert(mouse[0]),
+                        bisect = d3.bisector(function(d) { return d.date; }).right;
+                    idx = bisect(d.values, xDate);
+
+                    var beginning = 0,
+                        end = lines[i].getTotalLength(),
+                        target = null;
+
+                    while (true){
+                        target = Math.floor((beginning + end) / 2);
+                        pos = lines[i].getPointAtLength(target);
+                        if ((target === end || target === beginning) && pos.x !== mouse[0]) {
+                            break;
+                        }
+                        if (pos.x > mouse[0])      end = target;
+                        else if (pos.x < mouse[0]) beginning = target;
+                        else break; //position found
+                    }
+
+                    d3.select(this).select('text')
+                        .text(y.invert(pos.y).toFixed(2));
+
+                    return "translate(" + mouse[0] + "," + pos.y +")";
+                });
+            });
+            });
 
         </script>
+
+
+
+
+
 
         <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 
