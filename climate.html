@@ -3,7 +3,7 @@
     <head>
         <title>Impact of Climate Changes in Australia</title>
         <link rel="stylesheet" href="climate.css">
-
+        <script src="https://kit.fontawesome.com/5b075a4271.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
@@ -15,75 +15,301 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
 
 
-
         <script src="d3v4.js"></script>
 
         <div class="sidenav">
-            <a class="js-scroll-trigger" href="#first">Introduction</a>
-            <a class="js-scroll-trigger" href="#second">Water Storage Level</a>
-            <a class="js-scroll-trigger" href="#third">Inland VS Coastal</a>
-            <a class="js-scroll-trigger" href="#fourth">Droughts</a>
+            <a href="#first"><i class="fas fa-globe-asia"></i> Introduction</a>
+            <a href="#second"><i class="fas fa-water"></i> Catchment</a>
+            <a href="#third"><i class="fas fa-temperature-high"></i> Temperature</a>
+            <a href="#fourth"><i class="fas fa-sun"></i> Heatwave</a>
+            <a href="#fifth"><i class="fas fa-burn"></i> Drought</a>
+            <a href="#sixth"><i class="fas fa-flag-checkered"></i> End</a>
         </div>
 
         <div class="main" id="first">
             <h1 style="font-size: 3.5rem;font-weight: bolder; color: cadetblue">Climate Change: Is It an Out-Dated Topic?</h1>
-            <p>Climate change is a word that everyone should be familiar with, <br>but how much do people really know about climate change, and how close is it from our daily life?</p>
+            <p>Climate change is a word that everyone should be familiar with, <br><span style="font-weight: bolder"> but how much do people really know about climate change?</span></p>
 
-            <p>Following is a Word Cloud generated from <a href="https://blog.gdeltproject.org/a-new-part-of-speech-dataset-to-explore-climate-change-narratives-in-english-online-news-2016-2020/">a speech dataset</a> that contains recent English news that talked about climate change.</p>
+            <p>Following is a Word Cloud generated from <a href="https://blog.gdeltproject.org/a-new-part-of-speech-dataset-to-explore-climate-change-narratives-in-english-online-news-2016-2020/">a speech dataset</a> that<br> contains recent English news that talked about climate change.</p>
 
             <div class="cloud"></div>
 
-            <p>Greenhouse, Emissions, Carbon... Seems pretty formal isn't it?</p>
+            <p><span style="font-weight: bolder">Greenhouse</span>, <span style="font-weight: bolder">Emissions</span>, <span style="font-weight: bolder">Carbon</span>... That's what people are talking about when it comes to Climate Change, But how close is it?</p>
 
         </div>
 
         <div class="main" id="second">
-            <h1 style="font-size: 3.5rem;font-weight: bolder; color: cadetblue">Climate changes is getting closer to Melbourne</h1>
-            <p>What you might not know is, abnormal weather such as droughts are having serious affect on the <a href="https://www.melbournewater.com.au/water/water-storage-and-use#/ws/freq/daily/type/storage%E3%80%81">water storage level</a> of Melbourne</p>
+            <h1 style="font-size: 3.5rem;font-weight: bolder; color: cadetblue">Climate Change is Closer Than You Think</h1>
+            <p>What you might not know is, abnormal weather such as droughts<br> are having serious affect on the <a href="https://www.melbournewater.com.au/water/water-storage-and-use#/ws/freq/daily/type/storage%E3%80%81">water storage level</a> of Melbourne</p>
 
             <div class="row">
-
-                <div id="chart" class="col-lg-6 col-md-6"></div>
                 <div class="col-lg-6 col-md-6">
-                    <p style="padding-top: 2rem">Over 80% of Melbourne's water supply comes from water catchment: creeks, rivers, lakes, which is extremely vulnerable to droughts.
-                        In 2000s, Australia has experienced the worst drought in history, also know as <a href="https://en.wikipedia.org/wiki/2000s_Australian_drought">The Millennium Drought</a>.
-                        With history data, we can easily identify the unusual drop of water storage in Melbourne in 2000s.<span style="font-style: italic; color: brown">
-                        Even though the storage level reach its peak at 2014, it has been dropping ever since.</span></p>
+                    <h2>History Water Storage Level of Melbourne</h2>
+                    <p style="font-size: 25px; padding: 0rem">(Hover to see the percentage of water level)</p>
+                    <div id="chart"></div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <p style="padding-top: 2rem"><span style="font-weight: bolder; color: cornflowerblue">Over 80%</span> of Melbourne's water supply comes from water catchment: creeks, rivers, lakes, which is extremely vulnerable to droughts.
+                        In 2000s, Australia has experienced the worst drought in history, which is also know as <a href="https://en.wikipedia.org/wiki/2000s_Australian_drought">The Millennium Drought</a>.
+                        <br>With <a href="https://www.melbournewater.com.au/water/water-storage-and-use#/ws/freq/weekly/type/storage">history water storage data of the past decade</a>, we can easily identify the unusual drop of water storage in Melbourne in 2000s.<span style="font-style: italic; color: brown">
+                        <br>Even though the storage level reach its peak at 2014, it has been dropping ever since.</span></p>
                 </div>
             </div>
 
         </div>
 
         <div class="main" id="third">
-            <h1 style="font-size: 3.5rem;font-weight: bolder; color: cadetblue">Climate changes is getting closer to Melbourne</h1>
-            <p>What you might not know is, abnormal weather such as droughts are having serious affect on the <a href="https://www.melbournewater.com.au/water/water-storage-and-use#/ws/freq/daily/type/storage%E3%80%81">water storage level</a> of Melbourne</p>
+            <h1 style="font-size: 3.5rem;font-weight: bolder; color: cadetblue">Australia is Getting Warmer</h1>
+            <p>Temperature is one of the major measurement of climate change.<br>As an Australian resident, can you feel the heat?</p>
 
             <div class="row">
-
-                <div id="city-chart" class="col-lg-6 col-md-6"></div>
                 <div class="col-lg-6 col-md-6">
-                    <p style="padding-top: 2rem">Over 80% of Melbourne's water supply comes from water catchment: creeks, rivers, lakes, which is extremely vulnerable to droughts.
-                        In 2000s, Australia has experienced the worst drought in history, also know as <a href="https://en.wikipedia.org/wiki/2000s_Australian_drought">The Millennium Drought</a>.
-                        With history data, we can easily identify the unusual drop of water storage in Melbourne in 2000s.<span style="font-style: italic; color: brown">
-                        Even though the storage level reach its peak at 2014, it has been dropping ever since.</span></p>
+                    <h2>The Increasing Temperature from 1912 to 2019</h2>
+                    <p style="font-size: 25px; padding: 0rem">(Hover to see the mean highest temperature in each year)</p>
+                    <div id="city-chart"></div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <p style="padding-top: 2rem">According to NASA, <span style="font-weight: bolder; color: crimson">2 degrees Celsius</span> warming means <span style="font-weight: bolder; color: crimson">37 percent</span> of Earth's population will be exposed to severe heatwaves at least once every five years. <br>Since 1912, the <span>mean highest temperature</span> has increased over 2 degrees in <span style="color: #1f77b4">Canberra</span>, <span style="color: #ff7f0e">Sydney</span>, and <span style="color: #2ca02c"> Melbourne</span> despite they are experiencing climate as inland city and coastal city.</p> 
+
                 </div>
             </div>
         </div>
 
         <div class="main" id="fourth">
-            <h1 style="font-size: 3.5rem;font-weight: bolder; color: cadetblue">Climate changes is getting closer to Melbourne</h1>
-            <p>What you might not know is, abnormal weather such as droughts are having serious affect on the <a href="https://www.melbournewater.com.au/water/water-storage-and-use#/ws/freq/daily/type/storage%E3%80%81">water storage level</a> of Melbourne</p>
+            <h1 style="font-size: 3.5rem;font-weight: bolder; color: cadetblue">More Heat Wave is Coming...</h1>
+            <p>The median of mean highest temperature in Melbourne since 1912 is <span style="font-weight: bolder; color: crimson">19.5</span>.<br>If we considered any temperature over it as "hot", then the number of "hot years" in each decade is significantly increasing.</p>
 
             <div class="row">
-
-                <div id="histogram" class="col-lg-6 col-md-6"></div>
                 <div class="col-lg-6 col-md-6">
-                    <p style="padding-top: 2rem">Over 80% of Melbourne's water supply comes from water catchment: creeks, rivers, lakes, which is extremely vulnerable to droughts.
-                        In 2000s, Australia has experienced the worst drought in history, also know as <a href="https://en.wikipedia.org/wiki/2000s_Australian_drought">The Millennium Drought</a>.
-                        With history data, we can easily identify the unusual drop of water storage in Melbourne in 2000s.<span style="font-style: italic; color: brown">
-                        Even though the storage level reach its peak at 2014, it has been dropping ever since.</span></p>
+                    <h2>Increasing Number of "Hot Years"</h2>
+<!--                    <p style="font-size: 25px; padding: 0rem">(Hover to see the mean highest temperature in each year)</p>-->
+                    <div id="histogram"></div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <p style="padding-top: 2rem">Starting from 1910s, there was barely any year that experience a mean highest temperature over <span style="font-weight: bolder; color: crimson">19.5</span>, however, in the past two decades, we have went through the hottest <span style="font-weight: bolder; color: crimson">20 years</span> in the history </p> 
+
                 </div>
             </div>
+        </div>
+
+
+        <div class="main" id="fifth">
+            <h1 style="font-size: 3.5rem;font-weight: bolder; color: cadetblue">More Frequent Droughts</h1>
+            <p>Less rainfall is the major cause of droughts. Using the history rainfall data, <br>the number of years that experienced a rainfall that was below average can be identified and compared.</p>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <h2>The Number of "Drought Year" in Each 2 Decades</h2>
+                    <p style="font-size: 25px; padding: 0rem">(Click to switch between cities)</p>
+                    <div id="years">
+
+                        <button type="button" id="yelp2006">Melbourne</button>
+                        <button type="button" id="yelp2007">Canberra</button>
+                        <button type="button" id="yelp2008">Sydney</button>
+                    </div>
+
+                    <p id="BubbleChart">
+                        <script>
+                            // Set the Attributes of the Graph
+                            var diameter = 560,
+                                format = d3.format(",d"),
+                                color1 = d3.scale.category20c();
+
+                            var pack = d3.layout.pack()
+                            .size([diameter, diameter])
+                            .padding(1.5);
+
+                            //Create SVG element
+                            var svg1 = d3.select("#BubbleChart").append("svg")
+                            .attr("width", diameter)
+                            .attr("height", diameter)
+                            .attr("class", "bubble");
+
+
+                            changebubble(0);
+
+
+
+                            function changebubble(i) {
+                                d3.csv("count_s.csv", function(csvData) {
+                                    var years = [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014];
+                                    pack.value(function(d) {
+                                        return +d["count" + years[i]];
+                                    });
+
+                                    var data = {
+                                        name: "city",
+                                        children: csvData
+                                    };
+
+                                    var node = svg1.selectAll("g.node")
+                                    .data(pack.nodes(data), function(d) {
+                                        return d.city;
+                                    });
+
+                                    var nodeEnter = node.enter().append("g")
+                                    .attr("class", "node")
+                                    .attr("transform", function(d) {
+                                        return "translate(" + d.x + "," + d.y + ")";
+                                    });
+
+                                    //Add the Circles
+                                    var circles = nodeEnter.append("circle")
+                                    .attr("r", function(d) {
+                                        return d.r;
+                                    })
+                                    .style("fill", function(d) {
+                                        return color1(d.city);
+                                    });
+
+                                    nodeEnter.append("title")
+                                        .text(function(d) {
+                                        return d.city + " : " + format(d.value);
+                                    });
+
+                                    //Add the Texts
+                                    nodeEnter.append("text")
+                                        .attr("dy", ".2em")
+                                        .style("text-anchor", "middle")
+                                        .text(function(d) {
+                                        return d.city
+                                    });
+
+                                    nodeEnter.append("text")
+                                        .attr("class", "value")
+                                        .attr("dy", "1.3em")
+                                        .style("text-anchor", "middle")
+                                        .text(function(d) {
+                                        return d.value
+                                    });
+
+
+                                    node.select("circle")
+                                        .transition().duration(1000)
+                                        .attr("r", function(d) {
+                                        return d.r;
+                                    })
+                                        .style("fill", function(d) {
+                                        return color1(d.city);
+                                    });
+
+                                    node.transition().duration(1000).attr("class", "node")
+                                        .attr("transform", function(d) {
+                                        return "translate(" + d.x + "," + d.y + ")";
+                                    });
+
+                                    node.select(".value")
+                                        .text(function(d) {
+                                        return format(d.value);
+                                    });
+
+                                    node.select("title")
+                                        .text(function(d) {
+                                        return d.city + " : " + format(d.value);
+                                    });
+
+                                    node.on('mouseover', highlightThisOne);
+                                    node.on('mouseout', restoreAllColors);
+
+                                    function highlightThisOne(d) {
+                                        console.log(d);
+                                        d3.selectAll("g.node").transition().duration(500)
+                                            .attr("fill", function(d) {
+                                            return color1(d.city);
+                                        });
+                                        d3.select(this).transition().duration(500)
+                                            .attr('fill', "orange");
+                                    }
+
+                                    function restoreAllColors(d) {
+                                        d3.selectAll("g.node").transition().duration(500)
+                                            .attr("font-weight", "bold")
+                                            .attr("fill", "black");
+                                    }
+
+                                    node.exit().remove();
+
+
+                                });
+                            }
+
+                            function updateBubble1() {
+                                changebubble(0);
+                            }
+
+                            function updateBubble2() {
+                                changebubble(1);
+                            }
+
+                            function updateBubble3() {
+                                changebubble(2);
+                            }
+
+
+                            d3.select("#yelp2006").on("click", updateBubble1);
+                            d3.select("#yelp2007").on("click", updateBubble2);
+                            d3.select("#yelp2008").on("click", updateBubble3);
+                        </script>
+                    </p>
+
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Time Period</th>
+                                <th scope="col">Melbourne</th>
+                                <th scope="col">Canberra</th>
+                                <th scope="col">Sydney</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1920-1939</th>
+                                <td>13</td>
+                                <td>14</td>
+                                <td>14</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1940-1959</th>
+                                <td>5</td>
+                                <td>11</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1960-1979</th>
+                                <td>9</td>
+                                <td>8</td>
+                                <td>2</td>
+                            </tr>                            <tr>
+                            <th scope="row">1980-1999</th>
+                            <td>10</td>
+                            <td>9</td>
+                            <td>18</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2000-2019</th>
+                                <td>16</td>
+                                <td>13</td>
+                                <td>16</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <p style="padding-top: 2rem">It's easy to find out that Melbourne, Canberra, and Sydney is getting less and less rain since 1960s. What's worth mentioning is: in 1920s, Australia experienced one of the worst droughts, which lead to the water restriction in Sydney. </p> 
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main" id="sixth">
+            <h1 style="font-size: 5.5rem;font-weight: bolder; color: cadetblue; padding-top: 30rem;">Now, How Close Do You Think Climate Change Is?</h1>
 
         </div>
 
@@ -106,9 +332,6 @@
                     climateText = climateText + " " + data[i].token;
                 }
 
-                console.log("What?")
-                //                console.log(climateText);
-
                 text2 = climateText,
 
                     words = sortByFrequency( text2.split(/[ ,.]+/) )
@@ -118,8 +341,8 @@
                 });
 
                 var fontName = "Impact",
-                    cWidth = 720,
-                    cHeight = 400,
+                    cWidth = 900,
+                    cHeight = 600,
                     svg,
                     wCloud,
                     bbox,
@@ -307,6 +530,7 @@
                     return scales[i]; })
                 .attr( 'y', height  - padding );
 
+
                 var labelSVG = chart.selectAll( 'svg' ).data( myData )
                 .enter().append( 'svg' )
                 .attr( 'class', 'chart-label-svg' )
@@ -315,7 +539,8 @@
                 .attr( 'x', function( d, i ) { return scales[i] + xScale.rangeBand(); })
                 .attr( 'y', function( d ){ return height - yScale( d ) - padding - 30;})
                 .style( 'opacity', '0' )
-                .append( 'g' );
+                .append( 'g' )
+                ;
 
                 labelSVG.append( 'rect' )
                     .attr( 'class', 'chart-label-rect' )
@@ -537,9 +762,9 @@
                 })
                     .attr("x", 3)
                     .attr("dy", ".35em");
-//                    .text(function(d) {
-//                    return d.name;
-//                });
+                //                    .text(function(d) {
+                //                    return d.name;
+                //                });
 
                 var mouseG = svg.append("g")
                 .attr("class", "mouse-over-effects");
@@ -654,7 +879,7 @@
 
 
                 var myData = levels,
-                    colors = ['#ACF0F2', '#1b6ca8' ],
+                    colors = ['#ff7676', '#ff0707' ],
                     width = 800,
                     height = 500,
                     padding = 60,
@@ -782,7 +1007,86 @@
         </script>
 
 
-        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+        <script>
+
+
+            var dataset = {
+                "children": [{
+                    "facilityId": "FAC0001",
+                    "responseCount": 2
+                }, {
+                    "facilityId": "FAC0006",
+                    "responseCount": 2
+                }, {
+                    "facilityId": "FAC0002",
+                    "responseCount": 1
+                }, {
+                    "facilityId": "FAC0003",
+                    "responseCount": 2
+                }, {
+                    "facilityId": "FAC0004",
+                    "responseCount": 3
+                }, {
+                    "facilityId": "FAC0005",
+                    "responseCount": 1
+                }]
+            };
+
+            var diameter = 350;
+
+            var color = ['#f96768', '#f2a553', '#45be89', '#10a9f5', '#47bfd4'];
+
+            var bubble = d3.pack(dataset)
+            .size([diameter, diameter])
+            .padding(1.5);
+
+
+            var svg = d3.select("#chart-balloon")
+            .append("svg")
+            .attr("width", '100%')
+            .attr("height", diameter)
+            .attr("class", "bubble");
+
+            var nodes = d3.hierarchy(dataset)
+            .sum(function(d) { return d.responseCount; });
+
+            var node = svg.selectAll(".node")
+            .data(bubble(nodes).descendants())
+            .enter()
+            .filter(function(d){
+                return  !d.children
+            })
+            .append("g")
+            .attr("class", "node")
+            .attr("transform", function(d) {
+                return "translate(" + d.x + "," + d.y + ")";
+            });
+
+            node.append("title")
+                .text(function(d) {
+                return d.facilityId + ": " + d.responseCount;
+            });
+
+            node.append("circle")
+                .attr("r", function(d) {
+                return d.r;
+            })
+                .style("fill", function(d,i) {
+                return color[i];
+            });
+
+            node.append("text")
+                .attr("dy", ".3em")
+                .attr('font-size',12)
+                .style('fill','#fff')
+                .style('text-anchor','middle')
+                .text(function(d) {
+                return d.data.facilityId.substring(0, d.r / 3) + ": " + d.data.responseCount;
+            });
+
+            d3.select(self.frameElement)
+                .style("height", diameter + "px");
+        </script>
 
 
 
