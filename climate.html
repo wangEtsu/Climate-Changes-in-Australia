@@ -2,20 +2,23 @@
 <html>
     <head>
         <title>Impact of Climate Changes in Australia</title>
+
+        <!--Load custom css-->
         <link rel="stylesheet" href="climate.css">
-        <script src="https://kit.fontawesome.com/5b075a4271.js" crossorigin="anonymous"></script>
+        <!--Load bootstrap-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/5b075a4271.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
 
-
+        <!--Load d3js-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
-
-
-        <script src="d3v4.js"></script>
+        <!--Load jQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!--        <script src="d3v4.js"></script>-->
 
         <div class="sidenav">
             <a href="#first"><i class="fas fa-globe-asia"></i> Introduction</a>
@@ -34,7 +37,7 @@
 
             <div class="cloud"></div>
 
-            <p><span style="font-weight: bolder">Greenhouse</span>, <span style="font-weight: bolder">Emissions</span>, <span style="font-weight: bolder">Carbon</span>... That's what people are talking about when it comes to Climate Change, But how close is it?</p>
+            <p><span style="font-weight: bolder">Greenhouse</span>, <span style="font-weight: bolder">Emissions</span>, <span style="font-weight: bolder">Carbon</span>... <br>That's what people are talking about when it comes to Climate Change<br>But how close is it?</p>
 
         </div>
 
@@ -61,7 +64,7 @@
 
         <div class="main" id="third">
             <h1 style="font-size: 3.5rem;font-weight: bolder; color: cadetblue">Australia is Getting Warmer</h1>
-            <p>Temperature is one of the major measurement of climate change.<br>As an Australian resident, can you feel the heat?</p>
+            <p>Temperature is one of the major measurements of climate change.<br>As an Australian resident, can you feel the heat?</p>
 
             <div class="row">
                 <div class="col-lg-6 col-md-6">
@@ -71,7 +74,7 @@
                 </div>
 
                 <div class="col-lg-6 col-md-6">
-                    <p style="padding-top: 2rem">According to NASA, <span style="font-weight: bolder; color: crimson">2 degrees Celsius</span> warming means <span style="font-weight: bolder; color: crimson">37 percent</span> of Earth's population will be exposed to severe heatwaves at least once every five years. <br>Since 1912, the <span>mean highest temperature</span> has increased over 2 degrees in <span style="color: #1f77b4">Canberra</span>, <span style="color: #ff7f0e">Sydney</span>, and <span style="color: #2ca02c"> Melbourne</span> despite they are experiencing climate as inland city and coastal city.</p> 
+                    <p style="padding-top: 2rem">According to NASA, <span style="font-weight: bolder; color: crimson">2 degrees Celsius</span> warming means <span style="font-weight: bolder; color: crimson">37 percent</span> of Earth's population will be exposed to severe heatwaves at least once every five years. <br>Since 1912, the <span>mean highest temperature</span> has increased <span style="font-weight: bolder; color: crimson">over 2 degrees</span> in <span style="color: #1f77b4">Canberra</span>, <span style="color: #ff7f0e">Sydney</span>, and <span style="color: #2ca02c"> Melbourne</span> despite they are experiencing different climate as inland city and coastal city.</p> 
 
                 </div>
             </div>
@@ -79,18 +82,18 @@
 
         <div class="main" id="fourth">
             <h1 style="font-size: 3.5rem;font-weight: bolder; color: cadetblue">More Heat Wave is Coming...</h1>
-            <p>The median of mean highest temperature in Melbourne since 1912 is <span style="font-weight: bolder; color: crimson">19.5</span>.<br>If we considered any temperature over it as "hot", then the number of "hot years" in each decade is significantly increasing.</p>
+            <p>The median of mean highest temperature in Melbourne since 1912 is <span style="font-weight: bolder; color: crimson">19.5°C</span>.<br>If we considered any temperature over it as "hot", then the number of "hot years" in each decade is significantly increasing.</p>
 
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <h2>Increasing Number of "Hot Years"</h2>
-<!--                    <p style="font-size: 25px; padding: 0rem">(Hover to see the mean highest temperature in each year)</p>-->
+                    <!--<p style="font-size: 25px; padding: 0rem">(Hover to see the mean highest temperature in each year)</p>-->
                     <div id="histogram"></div>
                 </div>
 
                 <div class="col-lg-6 col-md-6">
-                    <p style="padding-top: 2rem">Starting from 1910s, there was barely any year that experience a mean highest temperature over <span style="font-weight: bolder; color: crimson">19.5</span>, however, in the past two decades, we have went through the hottest <span style="font-weight: bolder; color: crimson">20 years</span> in the history </p> 
-
+                    <p style="padding-top: 2rem">Starting from 1910s, it's not usual to experience a mean highest temperature over <span style="font-weight: bolder; color: crimson">19.5°C</span>, however, in the past two decades, we have went through the hottest <span style="font-weight: bolder; color: crimson">20 years</span> in the history </p> 
+ 
                 </div>
             </div>
         </div>
@@ -98,17 +101,17 @@
 
         <div class="main" id="fifth">
             <h1 style="font-size: 3.5rem;font-weight: bolder; color: cadetblue">More Frequent Droughts</h1>
-            <p>Less rainfall is the major cause of droughts. Using the history rainfall data, <br>the number of years that experienced a rainfall that was below average can be identified and compared.</p>
+            <p>Less rainfall is the major cause of droughts. Using <a href="http://www.bom.gov.au/jsp/ncc/cdio/weatherData/av?p_nccObsCode=139&p_display_type=dataFile&p_startYear=&p_c=&p_stn_num=066006">the history rainfall data</a>, <br>the number of years that experienced a rainfall that was below average can be identified and compared.</p>
 
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <h2>The Number of "Drought Year" in Each 2 Decades</h2>
                     <p style="font-size: 25px; padding: 0rem">(Click to switch between cities)</p>
-                    <div id="years">
+                    <div id="cities">
 
-                        <button type="button" id="yelp2006">Melbourne</button>
-                        <button type="button" id="yelp2007">Canberra</button>
-                        <button type="button" id="yelp2008">Sydney</button>
+                        <button type="button" id="melbourne">Melbourne</button>
+                        <button type="button" id="canberra">Canberra</button>
+                        <button type="button" id="sydney">Sydney</button>
                     </div>
 
                     <p id="BubbleChart">
@@ -135,7 +138,7 @@
 
                             function changebubble(i) {
                                 d3.csv("count_s.csv", function(csvData) {
-                                    var years = [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014];
+                                    var years = ["Melbourne", "Canberra", "Sydney"];
                                     pack.value(function(d) {
                                         return +d["count" + years[i]];
                                     });
@@ -147,7 +150,7 @@
 
                                     var node = svg1.selectAll("g.node")
                                     .data(pack.nodes(data), function(d) {
-                                        return d.city;
+                                        return d.period;
                                     });
 
                                     var nodeEnter = node.enter().append("g")
@@ -162,12 +165,12 @@
                                         return d.r;
                                     })
                                     .style("fill", function(d) {
-                                        return color1(d.city);
+                                        return color1(d.period);
                                     });
 
                                     nodeEnter.append("title")
                                         .text(function(d) {
-                                        return d.city + " : " + format(d.value);
+                                        return d.period + " : " + format(d.value);
                                     });
 
                                     //Add the Texts
@@ -175,7 +178,7 @@
                                         .attr("dy", ".2em")
                                         .style("text-anchor", "middle")
                                         .text(function(d) {
-                                        return d.city
+                                        return d.period
                                     });
 
                                     nodeEnter.append("text")
@@ -193,7 +196,7 @@
                                         return d.r;
                                     })
                                         .style("fill", function(d) {
-                                        return color1(d.city);
+                                        return color1(d.period);
                                     });
 
                                     node.transition().duration(1000).attr("class", "node")
@@ -208,7 +211,7 @@
 
                                     node.select("title")
                                         .text(function(d) {
-                                        return d.city + " : " + format(d.value);
+                                        return d.period + " : " + format(d.value);
                                     });
 
                                     node.on('mouseover', highlightThisOne);
@@ -218,7 +221,7 @@
                                         console.log(d);
                                         d3.selectAll("g.node").transition().duration(500)
                                             .attr("fill", function(d) {
-                                            return color1(d.city);
+                                            return color1(d.period);
                                         });
                                         d3.select(this).transition().duration(500)
                                             .attr('fill', "orange");
@@ -249,9 +252,9 @@
                             }
 
 
-                            d3.select("#yelp2006").on("click", updateBubble1);
-                            d3.select("#yelp2007").on("click", updateBubble2);
-                            d3.select("#yelp2008").on("click", updateBubble3);
+                            d3.select("#melbourne").on("click", updateBubble1);
+                            d3.select("#canberra").on("click", updateBubble2);
+                            d3.select("#sydney").on("click", updateBubble3);
                         </script>
                     </p>
 
@@ -301,7 +304,7 @@
                         </tbody>
                     </table>
 
-                    <p style="padding-top: 2rem">It's easy to find out that Melbourne, Canberra, and Sydney is getting less and less rain since 1960s. What's worth mentioning is: in 1920s, Australia experienced one of the worst droughts, which lead to the water restriction in Sydney. </p> 
+                    <p style="padding-top: 2rem">It's easy to find out that Melbourne, Canberra, and Sydney is getting less and less rain since 1960s. What's worth mentioning is: in 1920s, Australia experienced one of the worst droughts, which lead to <a href="https://knowledge.aidr.org.au/resources/environment-national-drought-1918/">the water restriction in Sydney</a>. </p> 
 
                 </div>
             </div>
@@ -315,7 +318,7 @@
 
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
 
 
@@ -404,16 +407,14 @@
                         "), scale " + bScale
                     );
 
-                    // the library's bounds seem not to correspond to reality?
-                    // try using .getBBox() instead?
+
 
                     svg = d3.select(".cloud").append("svg")
                         .attr("width", cWidth)
                         .attr("height", cHeight);
 
                     wCloud = svg.append("g")
-                    //.attr("transform", "translate(" + [bDeltaX, bDeltaY] + ") scale(" + 1 + ")") // nah!
-                        .attr("transform", "translate(" + [bWidth>>1, bHeight>>1] + ") scale(" + bScale + ")") // nah!
+                        .attr("transform", "translate(" + [bWidth>>1, bHeight>>1] + ") scale(" + bScale + ")") 
                         .selectAll("text")
                         .data(words)
                         .enter().append("text")
@@ -428,11 +429,9 @@
                     })
                         .text(function(d) { return d.text; });
 
-                    // TO DO: function to find min and max x,y of all words
-                    // and use it as the group's bbox
-                    // then do the transformation
+
                     bbox = wCloud.node(0).getBBox();
-                    //ctm = wCloud.node().getCTM();
+
                     console.log(
                         "bbox (x: " + bbox.x + 
                         ", y: " + bbox.y + 
@@ -605,7 +604,7 @@
         </script>
 
 
-        <!--Inland City VS Coastal City-->
+        <!--Multi-line chart-->
         <script>
 
             d3.csv("climate.csv", function(data) {
@@ -654,7 +653,6 @@
                 .append("g")
                 .attr("transform", "translate(" + marginCity.left + "," + marginCity.top + ")");
 
-                //            var data = d3.tsv.parse(myData);
 
                 console.log(data);
 
@@ -762,9 +760,6 @@
                 })
                     .attr("x", 3)
                     .attr("dy", ".35em");
-                //                    .text(function(d) {
-                //                    return d.name;
-                //                });
 
                 var mouseG = svg.append("g")
                 .attr("class", "mouse-over-effects");
@@ -879,7 +874,7 @@
 
 
                 var myData = levels,
-                    colors = ['#ff7676', '#ff0707' ],
+                    colors = ['#ff7670', '#ff0707' ],
                     width = 800,
                     height = 500,
                     padding = 60,
@@ -934,31 +929,7 @@
                     return scales[i]; })
                 .attr( 'y', height  - padding );
 
-                var labelSVG = chart.selectAll( 'svg' ).data( myData )
-                .enter().append( 'svg' )
-                .attr( 'class', 'chart-label-svg' )
-                .attr( 'width', 80 )
-                .attr( 'height', 30 )
-                .attr( 'x', function( d, i ) { return scales[i] + xScale.rangeBand(); })
-                .attr( 'y', function( d ){ return height - yScale( d ) - padding - 30;})
-                .style( 'opacity', '0' )
-                .append( 'g' );
 
-                labelSVG.append( 'rect' )
-                    .attr( 'class', 'chart-label-rect' )
-                    .attr( 'width', 120 )
-                    .attr( 'height', 30 )
-                    .attr( 'x', 0 )
-                    .attr( 'y', 0 )
-                    .attr( 'fill', 'grey' );
-
-                labelSVG.append( 'text' )
-                    .attr( 'x', '50%' )
-                    .attr( 'y', '50%' )
-                    .attr( 'text-anchor', 'middle' )
-                    .attr( 'alignment-baseline', 'middle' )
-                    .attr( 'fill', 'white' )
-                    .text( function( d ) { return d + "%"; });
 
                 var xAxisG = chart.append( 'g' )
                 .attr( 'class', 'axis' )
@@ -1006,87 +977,6 @@
             });
         </script>
 
-
-        <script>
-
-
-            var dataset = {
-                "children": [{
-                    "facilityId": "FAC0001",
-                    "responseCount": 2
-                }, {
-                    "facilityId": "FAC0006",
-                    "responseCount": 2
-                }, {
-                    "facilityId": "FAC0002",
-                    "responseCount": 1
-                }, {
-                    "facilityId": "FAC0003",
-                    "responseCount": 2
-                }, {
-                    "facilityId": "FAC0004",
-                    "responseCount": 3
-                }, {
-                    "facilityId": "FAC0005",
-                    "responseCount": 1
-                }]
-            };
-
-            var diameter = 350;
-
-            var color = ['#f96768', '#f2a553', '#45be89', '#10a9f5', '#47bfd4'];
-
-            var bubble = d3.pack(dataset)
-            .size([diameter, diameter])
-            .padding(1.5);
-
-
-            var svg = d3.select("#chart-balloon")
-            .append("svg")
-            .attr("width", '100%')
-            .attr("height", diameter)
-            .attr("class", "bubble");
-
-            var nodes = d3.hierarchy(dataset)
-            .sum(function(d) { return d.responseCount; });
-
-            var node = svg.selectAll(".node")
-            .data(bubble(nodes).descendants())
-            .enter()
-            .filter(function(d){
-                return  !d.children
-            })
-            .append("g")
-            .attr("class", "node")
-            .attr("transform", function(d) {
-                return "translate(" + d.x + "," + d.y + ")";
-            });
-
-            node.append("title")
-                .text(function(d) {
-                return d.facilityId + ": " + d.responseCount;
-            });
-
-            node.append("circle")
-                .attr("r", function(d) {
-                return d.r;
-            })
-                .style("fill", function(d,i) {
-                return color[i];
-            });
-
-            node.append("text")
-                .attr("dy", ".3em")
-                .attr('font-size',12)
-                .style('fill','#fff')
-                .style('text-anchor','middle')
-                .text(function(d) {
-                return d.data.facilityId.substring(0, d.r / 3) + ": " + d.data.responseCount;
-            });
-
-            d3.select(self.frameElement)
-                .style("height", diameter + "px");
-        </script>
 
 
 
